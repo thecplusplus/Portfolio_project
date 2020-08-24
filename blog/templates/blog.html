@@ -1,0 +1,146 @@
+<!--<html>
+{% load staticfiles %}
+<head>
+    <style>
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+            /* Style the links inside the navigation bar */
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                /* Change the color of links on hover */
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                /* Add a color to the active/current link */
+                .topnav a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+        .topnav-right {
+            float: right;
+        }
+
+        .text-centre {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<div class="topnav">
+    <a class="active" href="{%url 'home'%}">Abhinav</a>
+    <div class="topnav-right">
+        <a href="{% static 'resume.pdf' %}">News</a>
+        <a href="{% static 'resume.pdf' %}">Resume</a>
+        <a href="#about">About</a>
+    </div>
+
+</div>
+<h1 class="text-centre">Welcome Bros!!!</h1>
+<br />
+<h2>Latest Blogs</h2>
+<hr />
+{%for x in blogs.all%}
+<a href="{%url 'detail' x.id%}"><h3>{{x.title}}</h3></a>
+{{x.date_pub}}
+<br />
+<img src="{{x.image.url}}" height="200" width="200" />
+<br />
+<p>{{x.body}}</p>
+
+
+{%endfor%}
+<footer class="topnav">
+
+    <p class="text-centre">@abhinav</p>
+
+</footer>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Abhinav</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{%url 'home'%}">Abhinav Agrahari</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://linkedin.com">LinkedIn</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="http://instagram.com">Instagram</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+                        General
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{%url 'blog'%}">General</a>
+                        <a class="dropdown-item" href="#">C++</a>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+<div>
+    <h1 class="text-centre">Welcome Bros!!!</h1>
+    <br />
+    <h2>Latest Blogs</h2>
+    <hr />
+    {%for x in blogs.all%}
+    <a href="{%url 'detail' x.id%}"><h3>{{x.title}}</h3></a>
+    {{x.date_pub}}
+    <br />
+    <img src="{{x.image.url}}" height="200" width="200" />
+    <br />
+    <p>{{x.body}}</p>
+
+    <hr/>
+    {%endfor%}
+    </div>
+    <hr />
+    <footer class="text-muted bg-dark">
+        <div class="container text-center">
+            <p> Abhinav {% now "Y" %}</p>
+        </div>
+    </footer>
+</body>
+</html>
